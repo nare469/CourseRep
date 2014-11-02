@@ -1,5 +1,4 @@
 from django.db import models
-import random
 from django.contrib.auth.models import User
 
 class Course(models.Model):
@@ -13,6 +12,7 @@ class Topic(models.Model):
 	course = models.ForeignKey(Course)
 
 class Resource(models.Model):
+	title=models.CharField(max_length=30)
 	content=models.TextField()
 	points=models.IntegerField()
 	viewcount=models.IntegerField()
