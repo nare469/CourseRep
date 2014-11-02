@@ -64,11 +64,11 @@ class VoteViewSet(viewsets.ModelViewSet):
 # Routers provide an easy way of automatically determining the URL conf.
 router = routers.DefaultRouter()
 router.register(r'users', UserViewSet)
-router.register(r'topic', TopicViewSet)
-router.register(r'resource', ResourceViewSet)
-router.register(r'subscription', SubscriptionViewSet)
-router.register(r'vote', VoteViewSet)
-router.register(r'course', CourseViewSet)
+router.register(r'topics', TopicViewSet)
+router.register(r'resources', ResourceViewSet)
+router.register(r'subscriptions', SubscriptionViewSet)
+router.register(r'votes', VoteViewSet)
+router.register(r'courses', CourseViewSet)
 
 
 urlpatterns = [
