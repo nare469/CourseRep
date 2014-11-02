@@ -1,13 +1,6 @@
 from django.db import models
 import random
-
-class User(models.Model):
-	api_key = models.CharField(max_length=32, db_index=True)
-	username = models.CharField(max_length=20)
-	first_name = models.CharField(max_length=20)
-	last_name=models.CharField(max_length=20)
-	password= models.CharField(max_length=20)
-
+from django.contrib.auth.models import User
 
 class Course(models.Model):
 	code=models.CharField(max_length=10, db_index=True)

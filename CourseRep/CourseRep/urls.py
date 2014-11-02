@@ -1,6 +1,7 @@
 from django.conf.urls import include, url
 from django.contrib import admin
-from courses.models import User, Course, Topic, Resource, Subscription, Vote
+from django.contrib.auth.models import User
+from courses.models import Course, Topic, Resource, Subscription, Vote
 from rest_framework import routers, serializers, viewsets
 
 class UserSerializer(serializers.HyperlinkedModelSerializer):
