@@ -30,7 +30,7 @@ class ResourceSerializer(serializers.HyperlinkedModelSerializer):
 class VoteSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Vote
-        fields = ('voter', 'resource', 'value')
+        fields = ('id', 'voter', 'resource', 'value')
 
 # ViewSets define the view behavior.
 class UserViewSet(viewsets.ModelViewSet):
