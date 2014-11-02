@@ -7,18 +7,18 @@ from rest_framework import routers, serializers, viewsets
 class UserSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = User
-        fields = ('username', 'first_name', 'last_name', 'password', 'subscription_set')
+        fields = ('username', 'first_name', 'last_name', 'password', 'subscription_set', 'vote_set')
 
 class CourseSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Course
         fields = ('code', 'name', 'description', 'users', 'topic_set')
-        read_only_fields = ('code', 'name', 'description', 'users')
+        read_only_fields = ('code', 'name', 'description', 'users', 'topic_set')
 
 class TopicSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Topic
-        fields = ('name', 'course')
+        fields = ('name', 'course', 'resource_set')
         read_only_fields = ('name', 'course', 'resource_set')
 
 class ResourceSerializer(serializers.HyperlinkedModelSerializer):
