@@ -6,7 +6,7 @@ class Course(models.Model):
 	code=models.CharField(max_length=10, db_index=True)
 	name=models.CharField(max_length=20)
 	description=models.TextField()
-	users = models.ManyToManyField(User, through='Subscription')
+	users = models.ManyToManyField(User)
 
 class Topic(models.Model):
 	name=models.CharField(max_length=30)
@@ -19,9 +19,6 @@ class Resource(models.Model):
 	author=models.ForeignKey(User)
 	topic=models.ForeignKey(Topic)
 
-class Subscription(models.Model):
-	user=models.ForeignKey(User)
-	course=models.ForeignKey(Course)
 
 class Vote(models.Model):
 	voter=models.ForeignKey(User)

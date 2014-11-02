@@ -1,13 +1,13 @@
 from django.conf.urls import include, url
 from django.contrib import admin
 from django.contrib.auth.models import User
-from courses.models import Course, Topic, Resource, Subscription, Vote
+from courses.models import Course, Topic, Resource, Vote
 from rest_framework import routers, serializers, viewsets
 
 class UserSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = User
-        fields = ('id', 'username', 'first_name', 'last_name', 'password', 'subscription_set', 'vote_set')
+        fields = ('id', 'username', 'first_name', 'last_name', 'password', 'vote_set')
 
 class CourseSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
@@ -26,10 +26,6 @@ class ResourceSerializer(serializers.HyperlinkedModelSerializer):
         model = Resource
         fields = ('id', 'title', 'content', 'points', 'viewcount', 'author', 'topic')
 
-class SubscriptionSerializer(serializers.HyperlinkedModelSerializer):
-    class Meta:
-        model = Subscription
-        fields = ('user', 'course')
 
 class VoteSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
@@ -53,10 +49,6 @@ class ResourceViewSet(viewsets.ModelViewSet):
     queryset = Resource.objects.all()
     serializer_class = ResourceSerializer
 
-class SubscriptionViewSet(viewsets.ModelViewSet):
-    queryset = Subscription.objects.all()
-    serializer_class = SubscriptionSerializer
-
 class VoteViewSet(viewsets.ModelViewSet):
     queryset = Vote.objects.all()
     serializer_class = VoteSerializer
@@ -67,7 +59,6 @@ router = routers.DefaultRouter()
 router.register(r'users', UserViewSet)
 router.register(r'topics', TopicViewSet)
 router.register(r'resources', ResourceViewSet)
-router.register(r'subscriptions', SubscriptionViewSet)
 router.register(r'votes', VoteViewSet)
 router.register(r'courses', CourseViewSet)
 
