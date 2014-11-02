@@ -24,7 +24,7 @@ class TopicSerializer(serializers.HyperlinkedModelSerializer):
 class ResourceSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Resource
-        fields = ('id', 'title', 'content', 'points', 'viewcount', 'author', 'topic')
+        fields = ('id', 'content', 'points', 'viewcount', 'author', 'topic')
 
 
 class VoteSerializer(serializers.HyperlinkedModelSerializer):
